@@ -1,1 +1,24 @@
-{"firstName":"Yana","lastName":"Karmanova","eMail":"yana@gmail.com","phoneNumber":"1112222333","cardsList":[]}
+{
+  "firstName": "Yana",
+  "lastName": "Karmanova",
+  "eMail": "yana@gmail.com",
+  "phoneNumber": "1112222333",
+  "cardsList": [
+    {
+      "cardHolder": "Yana Karmanova",
+      "bankName": "N26",
+      "cardNumber": 1234567,
+      "cvv": 234,
+      "expDateString": "01/20",
+      "expDate": "2020-01-31T23:00:00.000Z"
+    },
+    {
+      "cardHolder": "Yana Karmanova",
+      "bankName": "Deutsche Bank",
+      "cardNumber": 987654,
+      "cvv": 432,
+      "expDateString": "05/20",
+      "expDate": "2020-05-31T22:00:00.000Z"
+    }
+  ]
+}

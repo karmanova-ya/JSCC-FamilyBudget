@@ -1,4 +1,4 @@
-module.exports = class Card {
+module.exports = class Card{
     constructor(user, bankName, cardNumber, cvv, expDateString) {
         this.cardHolder = user.firstName + " " + user.lastName;
         this.bankName = bankName;
@@ -9,6 +9,7 @@ module.exports = class Card {
         var year = Number(parts[1]) + 2000;
         this.expDate = new Date(year, parts[0]);
         this.welcomeCard();
+        user.addCard(this);
     }
 
     welcomeCard() {   //Method of displaying a message about creating a new card

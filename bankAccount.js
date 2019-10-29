@@ -10,5 +10,4 @@ class BankAccount{
     welcomeBA() {   //Method of displaying a message about creating a new card
         console.log(this.cardHolder + ", you opened a new bank account")
     }
-
 }

@@ -8,6 +8,7 @@ const Database = require('./database')
 // const Balance = require("./balance")
 const yanaK = new User("Yana", "Karmanova", "yana@gmail.com", "1112222333");
 const n26 = new Card(yanaK, "N26", 1234567, 234, "01/20");
+const db = new Card(yanaK, "Deutsche Bank", 0987654, 432, "05/20");
 Database.save(database_root, yanaK);
 n26.expirationReminder();
 
