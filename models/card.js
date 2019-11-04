@@ -11,23 +11,17 @@ module.exports = class Card {
         var parts = expDateString.split("/");   //Convert to a common date format
         var year = Number(parts[1]) + 2000;
         this.expDate = new Date(year, parts[0]);
-        this.welcomeCard();
-        user.addCard(this);
-        // this.cardsList = [];
     }
 
-    report(user) {
-        console.log(chalk.blue.bgRed.bold(this.cardHolder), ', you added', chalk.green(user.cl), 'bank cards')
+    assignTo() { //Method for adding a new card to an array of current user
+        user.cardsList.push(this)
+        this.cardHolder = user.firstName + " " + user.lastName
+        var welC = welcomeCard();
     }
 
-    welcomeCard() {   //Method of displaying a message about creating a new card
-        console.log(this.cardHolder + ", you added a new bank card\n")
+    report(user) {  //Show cards of current user
+        console.log(chalk.blue.bgRed.bold(this.cardHolder), ', you added', chalk.green(user.cl), 'bank cards\n')
     }
-
-    // addCard(card) {     //Method for adding a new card to an array
-    //     this.cardsList.push(card);
-    //     card.cardHolder = this.firstName + " " + this.lastName;
-    // }
 
     expirationReminder() {  //Method that reminds of bank card renewal 3 months prior to expiration
         var date = new Date();
@@ -38,7 +32,10 @@ module.exports = class Card {
             console.log("You need to renew your " + this.bankName + " card. The expiration date is " + this.expDateString);
         }
     }
+}
 
+function welcomeCard(card) {   //Method of displaying a message about adding a new card
+    console.log(card.cardHolder + ", you added a new bank card\n")
 }
 
 function monthDiff(d1, d2) {    //Method for calculating the difference in months between two dates

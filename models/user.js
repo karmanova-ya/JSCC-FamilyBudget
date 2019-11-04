@@ -10,7 +10,7 @@ module.exports = class User {
         this.id = id;
         this.cardsList = cardsList;
         this.cl = this.cardsList.length;
-        this.welcomeNewUser();
+        // this.welcomeNewUser();
     }
 
     welcomeNewUser() {   //A method for displaying a new user's greeting message
@@ -30,10 +30,14 @@ module.exports = class User {
 
     report() {
         console.log('User Name: ', chalk.blue.bold(this.firstName), chalk.blue.bold(this.lastName), '\n',
-            'E-mail: ', chalk.green(this.eMail), '\n',
-            'Phone number: ', chalk.green(this.phoneNumber), '\n'
-            // card.report(this)
+        'E-mail: ', chalk.green(this.eMail), '\n',
+        'Phone number: ', chalk.green(this.phoneNumber)
         )
+        this.cardsList.forEach(function(element, index) {
+            index += 1
+            console.log('Card', index,':' , element.bankName);
+        });
+        
     }
 }
 
