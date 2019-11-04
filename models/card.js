@@ -2,8 +2,11 @@ const chalk = require('chalk')
 const user = require('./user')
 
 module.exports = class Card {
-    constructor(user, bankName, cardNumber, cvv, expDateString) {
-        this.cardHolder = user.firstName + " " + user.lastName;
+    constructor(firstName, lastName, userId, bankName, cardNumber, cvv, expDateString) {
+        this.firstName = firstName;
+        this.userId = userId;
+        this.lastName = lastName;    
+        this.cardHolder = firstName + " " + lastName;
         this.bankName = bankName;
         this.cardNumber = cardNumber;
         this.cvv = cvv;
@@ -13,10 +16,10 @@ module.exports = class Card {
         this.expDate = new Date(year, parts[0]);
     }
 
-    assignTo() { //Method for adding a new card to an array of current user
+    assignTo(user) { //Method for adding a new card to an array of current user
         user.cardsList.push(this)
         this.cardHolder = user.firstName + " " + user.lastName
-        var welC = welcomeCard();
+        var welC = welcomeCard(this);
     }
 
     report(user) {  //Show cards of current user
@@ -31,6 +34,10 @@ module.exports = class Card {
         if (diff <= 3) {
             console.log("You need to renew your " + this.bankName + " card. The expiration date is " + this.expDateString);
         }
+    }
+
+    static create({ firstName, lastName, userId, bankName, cardNumber, cvv, expDateString }) {
+        return new Card( firstName, lastName, userId, bankName, cardNumber, cvv, expDateString);
     }
 }
 
