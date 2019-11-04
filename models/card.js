@@ -1,4 +1,7 @@
-module.exports = class Card{
+const chalk = require('chalk')
+const user = require('./user')
+
+module.exports = class Card {
     constructor(user, bankName, cardNumber, cvv, expDateString) {
         this.cardHolder = user.firstName + " " + user.lastName;
         this.bankName = bankName;
@@ -10,11 +13,21 @@ module.exports = class Card{
         this.expDate = new Date(year, parts[0]);
         this.welcomeCard();
         user.addCard(this);
+        // this.cardsList = [];
+    }
+
+    report(user) {
+        console.log(chalk.blue.bgRed.bold(this.cardHolder), ', you added', chalk.green(user.cl), 'bank cards')
     }
 
     welcomeCard() {   //Method of displaying a message about creating a new card
-        console.log(this.cardHolder + ", you added a new bank card")
+        console.log(this.cardHolder + ", you added a new bank card\n")
     }
+
+    // addCard(card) {     //Method for adding a new card to an array
+    //     this.cardsList.push(card);
+    //     card.cardHolder = this.firstName + " " + this.lastName;
+    // }
 
     expirationReminder() {  //Method that reminds of bank card renewal 3 months prior to expiration
         var date = new Date();
@@ -25,6 +38,7 @@ module.exports = class Card{
             console.log("You need to renew your " + this.bankName + " card. The expiration date is " + this.expDateString);
         }
     }
+
 }
 
 function monthDiff(d1, d2) {    //Method for calculating the difference in months between two dates
