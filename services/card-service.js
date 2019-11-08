@@ -3,7 +3,7 @@ const CardModel = require('../models/card')
 
 class CardService extends BaseService {
     constructor() {
-        super(CardModel, `${__dirname}/../database/card_data.json`)
+        super(CardModel, `${__dirname}/../database/cards_data.json`)
     }
 }
 

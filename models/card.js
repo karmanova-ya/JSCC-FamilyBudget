@@ -2,7 +2,7 @@ const chalk = require('chalk')
 const user = require('./user')
 
 module.exports = class Card {
-    constructor(firstName, lastName, userId, bankName, cardNumber, cvv, expDateString) {
+    constructor(firstName, lastName, userId, bankName, cardNumber, cvv, expDateString, id) {
         this.firstName = firstName;
         this.userId = userId;
         this.lastName = lastName;    
@@ -11,9 +11,10 @@ module.exports = class Card {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.expDateString = expDateString;
-        var parts = expDateString.split("/");   //Convert to a common date format
-        var year = Number(parts[1]) + 2000;
-        this.expDate = new Date(year, parts[0]);
+        // var parts = expDateString.split("/");   //Convert to a common date format
+        // var year = Number(parts[1]) + 2000;
+        // this.expDate = new Date(year, parts[0]);
+        this.id = id;
     }
 
     assignTo(user) { //Method for adding a new card to an array of current user

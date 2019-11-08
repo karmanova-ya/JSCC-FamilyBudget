@@ -1,1 +1,109 @@
-[["1"],{"firstName":"2","lastName":"3","eMail":"4","phoneNumber":"5","id":1,"cardsList":"6","cl":0},"Yana","Karmanova","yana@gmail.com","1112222333",["7","8"],{"firstName":"2","userId":1,"lastName":"3","cardHolder":"9","bankName":"10","cardNumber":1234567899,"cvv":234,"expDateString":"11","expDate":"12","id":1},{"firstName":"2","userId":1,"lastName":"3","cardHolder":"9","bankName":"13","cardNumber":1122334455,"cvv":123,"expDateString":"14","expDate":"15","id":1},"Yana Karmanova","N26","02/20","2020-02-29T23:00:00.000Z","Deutsche Bank","07/24","2024-07-31T22:00:00.000Z"]
+[
+    [
+        "1",
+        "2",
+        "3"
+    ],
+    {
+        "firstName": "4",
+        "lastName": "5",
+        "eMail": "6",
+        "phoneNumber": "7",
+        "id": 1,
+        "cardsList": "8",
+        "cl": 2
+    },
+    {
+        "firstName": "9",
+        "lastName": "10",
+        "eMail": "11",
+        "phoneNumber": "12",
+        "id": 2,
+        "cardsList": "13",
+        "cl": 0
+    },
+    {
+        "firstName": "9",
+        "lastName": "10",
+        "eMail": "11",
+        "phoneNumber": "12",
+        "id": 3,
+        "cardsList": "14",
+        "cl": 0
+    },
+    "Yana",
+    "Karmanova",
+    "yana@gmail.com",
+    "1112222333",
+    [
+        "15",
+        "16"
+    ],
+    "Dima",
+    "Karmanov",
+    "dima@gmail.com",
+    "0999887766",
+    [
+        "17",
+        "18"
+    ],
+    [],
+    {
+        "firstName": "4",
+        "userId": 1,
+        "lastName": "5",
+        "cardHolder": "19",
+        "bankName": "20",
+        "cardNumber": 1234567899,
+        "cvv": 234,
+        "expDateString": "21",
+        "id": 1
+    },
+    {
+        "firstName": "4",
+        "userId": 1,
+        "lastName": "5",
+        "cardHolder": "19",
+        "bankName": "22",
+        "cardNumber": 1122334455,
+        "cvv": 123,
+        "expDateString": "23",
+        "id": 1
+    },
+    {
+        "firstName": "24",
+        "userId": 998877,
+        "lastName": "20",
+        "cardHolder": "25",
+        "bankName": 666,
+        "cardNumber": "26",
+        "id": 1
+    },
+    {
+        "firstName": "24",
+        "userId": 3344556677,
+        "lastName": "22",
+        "cardHolder": "25",
+        "bankName": 111,
+        "cardNumber": "27",
+        "id": 1
+    },
+    "Yana Karmanova",
+    "N26",
+    "02/20",
+    "Deutsche Bank",
+    "07/24",
+    {
+        "firstName": "9",
+        "lastName": "10",
+        "eMail": "11",
+        "phoneNumber": "12",
+        "id": 4,
+        "cardsList": "28",
+        "cl": 0
+    },
+    "Dima Karmanov",
+    "12/25",
+    "05/23",
+    []
+]
