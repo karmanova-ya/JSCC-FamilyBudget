@@ -24,12 +24,19 @@ app.get('/user/all', async (req, res) => {
 
 app.get('/card/all', async (req, res) => {
     const cards = await CardService.findAll()
-    res.render('card', { cards: card})
+    res.render('card', { cards: cards})
 })
 
-app.get('/user/1', async (req, res) => {
-    const user = await UserService.find(1)
+app.get('/user/:id', async (req, res) => {
+    const id = req.params.id
+    const user = await UserService.find(id)
     res.send(user)
+})
+
+app.get('/card/:id', async (req, res) => {
+    const id = req.params.id
+    const card = await CardService.find(id)
+    res.send(card)
 })
 
 
