@@ -11,23 +11,27 @@ module.exports = class Card {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.expDateString = expDateString;
+        this.id = id;
         // var parts = expDateString.split("/");   //Convert to a common date format
         // var year = Number(parts[1]) + 2000;
         // this.expDate = new Date(year, parts[0]);
-        this.id = id;
     }
 
-    assignTo(user) { //Method for adding a new card to an array of current user
+    static create({ firstName, lastName, userId, bankName, cardNumber, cvv, expDateString, id }) {
+        return new Card( firstName, lastName, userId, bankName, cardNumber, cvv, expDateString, id);
+    }
+    
+    assignTo(user) {    //Method for adding a new card to an array of current user
         user.cardsList.push(this)
         this.cardHolder = user.firstName + " " + user.lastName
         var welC = welcomeCard(this);
     }
 
-    report(user) {  //Show cards of current user
+    report(user) {      //Show cards of current user
         console.log(chalk.blue.bgRed.bold(this.cardHolder), ', you added', chalk.green(user.cl), 'bank cards\n')
     }
 
-    expirationReminder() {  //Method that reminds of bank card renewal 3 months prior to expiration
+    expirationReminder() {      //Method that reminds of bank card renewal 3 months prior to expiration
         var date = new Date();
         var newDate = new Date(date.setMonth(date.getMonth() + 3));
         var diff = monthDiff(this.expDate, newDate)
@@ -37,12 +41,9 @@ module.exports = class Card {
         }
     }
 
-    static create({ firstName, lastName, userId, bankName, cardNumber, cvv, expDateString }) {
-        return new Card( firstName, lastName, userId, bankName, cardNumber, cvv, expDateString);
-    }
 }
 
-function welcomeCard(card) {   //Method of displaying a message about adding a new card
+function welcomeCard(card) {    //Method of displaying a message about adding a new card
     console.log(card.cardHolder + ", you added a new bank card\n")
 }
 

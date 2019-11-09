@@ -1,80 +1,36 @@
 [
     [
         "1",
-        "2",
-        "3",
-        "4"
+        "2"
     ],
     {
-        "firstName": "5",
+        "firstName": "3",
         "userId": 1,
-        "lastName": "6",
-        "cardHolder": "7",
-        "bankName": "8",
-        "cardNumber": 1234567899,
-        "cvv": 234,
-        "expDateString": "9"
-    },
-    {
-        "firstName": "5",
-        "userId": 1,
-        "lastName": "6",
-        "cardHolder": "7",
-        "bankName": "10",
-        "cardNumber": 1122334455,
-        "cvv": 123,
-        "expDateString": "11"
-    },
-    {
-        "firstName": "12",
-        "userId": 998877,
-        "lastName": "8",
-        "cardHolder": "13",
-        "bankName": 666,
-        "cardNumber": "14"
-    },
-    {
-        "firstName": "15",
-        "userId": 3344556677,
-        "lastName": "10",
-        "cardHolder": "16",
-        "bankName": 111,
-        "cardNumber": "17",
+        "lastName": "4",
+        "cardHolder": "5",
+        "bankName": "6",
+        "cardNumber": "7",
+        "cvv": "8",
+        "expDateString": "9",
         "id": 1
     },
-    "Yana",
-    "Karmanova",
-    "Yana Karmanova",
-    "N26",
-    "02/20",
-    "Deutsche Bank",
-    "07/24",
     {
-        "firstName": "18",
-        "lastName": "19",
-        "eMail": "20",
-        "phoneNumber": "21",
-        "id": 4,
-        "cardsList": "22",
-        "cl": 0
+        "bankName": "10",
+        "firstName": "11",
+        "lastName": "4",
+        "userId": 1,
+        "cardNumber": "7",
+        "cvv": "8",
+        "expDateString": "9",
+        "id": 2
     },
-    "N26",
-    "12/25",
-    {
-        "firstName": "18",
-        "lastName": "19",
-        "eMail": "20",
-        "phoneNumber": "21",
-        "id": 4,
-        "cardsList": "23",
-        "cl": 0
-    },
-    "Dima Karmanov",
-    "05/23",
     "Dima",
     "Karmanov",
-    "dima@gmail.com",
-    "0999887766",
-    [],
-    []
+    "Dima Karmanov",
+    "Comdirect",
+    "1123213123123",
+    "123",
+    "11/23",
+    "Comdirect2222222",
+    "Dima22222"
 ]
