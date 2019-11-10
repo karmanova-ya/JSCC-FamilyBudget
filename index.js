@@ -30,7 +30,7 @@ app.get('/user/:id', async (req, res) => {
 })
 
 app.get('/card/:id', async (req, res) => {
-    const id = req.params.id
+    // const id = req.params.id
     const card = await CardService.find(id)
     res.send(card)
 })
@@ -50,21 +50,20 @@ app.delete('/user/:id', async (req, res) => {
     res.send('ok')
 })
 
-app.delete('/card/:bankName', async (req, res) => {
-    const bn = req.params.bn
-    await CardService.del(bn)
+app.delete('/card/:id', async (req, res) => {
+    await CardService.del(req.params.id)
     res.send('ok')
 })
 
-//___________Homework_____________
-app.post('/grade/:teacher/:student', async (req, res) => {
-    const person = await TeacherService.grade(req.params.teacher, req.params.student)
-    const teacher = await TeacherService.find(req.params.teacher)
-    const student = await TeacherService.find(req.params.student)
+// //___________Homework_____________
+// app.post('/grade/:teacher/:student', async (req, res) => {
+//     const person = await TeacherService.grade(req.params.teacher, req.params.student)
+//     const teacher = await TeacherService.find(req.params.teacher)
+//     const student = await TeacherService.find(req.params.student)
     
-    teacher.grade(req.params.student)
-    res.send(user)
-})
+//     teacher.grade(req.params.student)
+//     res.send(user)
+// })
 
 
 app.listen(3000, () => {
