@@ -30,7 +30,7 @@ app.get('/user/:id', async (req, res) => {
 })
 
 app.get('/card/:id', async (req, res) => {
-    // const id = req.params.id
+    const id = req.params.id
     const card = await CardService.find(id)
     res.send(card)
 })
@@ -55,16 +55,20 @@ app.delete('/card/:id', async (req, res) => {
     res.send('ok')
 })
 
-// //___________Homework_____________
-// app.post('/grade/:teacher/:student', async (req, res) => {
-//     const person = await TeacherService.grade(req.params.teacher, req.params.student)
-//     const teacher = await TeacherService.find(req.params.teacher)
-//     const student = await TeacherService.find(req.params.student)
-    
-//     teacher.grade(req.params.student)
-//     res.send(user)
-// })
+app.get('/user/:id/cards', async (req, res) => {
+    const user = await UserService.find(req.params.id)
+    res.render('card', { cards: user.cardsList })
+})
 
+app.post('/user/:id/cards', async (req, res) => {
+    const userId = req.params.id
+    const user = await UserService.find(userId);
+    let card = await CardService.add(req.body)
+    card = await CardService.find(card.id);
+    card.assignTo(user);
+    await UserService.update(userId, user);
+    res.send(card)
+})
 
 app.listen(3000, () => {
     console.log('Server listening')

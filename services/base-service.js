@@ -20,7 +20,7 @@ module.exports = class Service {
           return reject(err)
         }
 
-        const items =Flatted.parse(file).map(this.model.create)
+        const items = Flatted.parse(file).map(this.model.create)
 
         resolve(items)
       })
@@ -64,5 +64,14 @@ module.exports = class Service {
         resolve()
       })
     })
+  }
+
+  async update(id, item) {
+    console.log("updating item");
+    const allItems = await this.findAll();
+    let oldUserIndex = allItems.findIndex(p => p.id == id);
+    allItems.splice(oldUserIndex, 1);
+    allItems.push(item);
+    await this.saveAll(allItems);
   }
 }

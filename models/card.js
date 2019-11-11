@@ -23,8 +23,11 @@ module.exports = class Card {
     
     assignTo(user) {    //Method for adding a new card to an array of current user
         user.cardsList.push(this)
-        this.cardHolder = user.firstName + " " + user.lastName
-        var welC = welcomeCard(this);
+        this.userId = user.id;
+        // this.cardHolder = user.firstName + " " + user.lastName;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        welcomeCard(this);
     }
 
     report(user) {      //Show cards of current user
