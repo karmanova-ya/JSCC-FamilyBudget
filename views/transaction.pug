@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 The number of transactions is #{transactions.length}
+    each transaction in transactions
+      h4 #{transaction.category} #{transaction.name} #{transaction.summ}
+
+      package.json

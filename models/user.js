@@ -1,42 +1,37 @@
-const chalk = require('chalk')
+const mongoose = require('mongoose')
 
-module.exports = class User {
+const UserSchema = new mongoose.Schema({
 
-    constructor(firstName, lastName, eMail, phoneNumber, id, cardsList = []) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.eMail = eMail;
-        this.phoneNumber = phoneNumber;
-        this.id = id;
-        this.cardsList = cardsList;
-        this.cl = this.cardsList.length;
-        // this.welcomeNewUser();
-    }
+    firstName: {
+        type: String,
+        required: true,
+        minlength: 2
+    },
 
-    welcomeNewUser() {   //A method for displaying a new user's greeting message
-        console.log("Hello " + this.firstName + "! We are so happy to see you here!\n")
-    }
+    lastName: {
+        type: String,
+        required: true,
+        minlength: 2
+    },
 
-    addCard(card) {     //Method for adding a new card to an array
-        console.log('**********************************\n')
-        this.cardsList.push(card);
-        this.cl = this.cardsList.length;
-        card.cardHolder = this.firstName + " " + this.lastName;
-    }
+    eMail: {
+        type: String,
+        required: true,
+    },
 
-    static create({ firstName, lastName, eMail, phoneNumber, id, cardsList }) {
-        return new User(firstName, lastName, eMail, phoneNumber, id, cardsList);
-    }
+    phoneNumber: {
+        type: Number,
+        required: true,
+        minlength: 7
+    },
 
-    report() {
-        console.log('User Name: ', chalk.blue.bold(this.firstName), chalk.blue.bold(this.lastName), '\n',
-            'E-mail: ', chalk.green(this.eMail), '\n',
-            'Phone number: ', chalk.green(this.phoneNumber)
-        )
-        this.cardsList.forEach(function (element, index) {
-            index += 1
-            console.log('Card', index, ':', element.bankName);
-        });
-    }
-}
+    cardsList: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Card',
+        autopopulate: {
+            maxDepth: 1
+        }
+    }],
 
+    amount: Number
+})

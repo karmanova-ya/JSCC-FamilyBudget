@@ -1,13 +1,16 @@
-class BankAccount{
-    constructor(user, bankName, iban, bic) {
-        this.cardHolder = user.firstName + " " + user.lastName;
-        this.bankName = bankName;
-        this.iban = iban;
-        this.bic = bic;
-        this.welcomeBA();
-    }
+const mongoose = require('mongoose')
 
-    welcomeBA() {     //Method of displaying a message about creating a new card
-        console.log(this.cardHolder + ", you opened a new bank account")
-    }
-}
+const BankAccountSchema = new mongoose.Schema({
+    bankName: String,
+    accountHolder: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'User'
+    },
+    amount: Number
+})
+
+BankAccountSchema.plugin(require('mongoose-autopopulate'))
+
+const BankAccountModel = mongoose.model('BankAccount', BankAccountSchema)
+
+module.exports = BankAccountModel
