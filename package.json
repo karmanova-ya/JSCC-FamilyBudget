@@ -1,7 +1,7 @@
 {
   "name": "week-4",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project will help to run a family budget in Berlin. It will take into account all income (e.g. salary, Kindergeld) and expenses (e.g. taxes, taking into account Steurklass, Hausgeld, SEPA), remind you of the extension or the need to terminate the existing contracts (Kundigug).",
   "main": "index.js",
   "scripts": {
     "test": "ava --watch --verbose",
@@ -25,5 +25,16 @@
     "ava": "^2.4.0",
     "nodemon": "^1.19.4",
     "nyc": "^14.1.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karmanova-ya/JSCC-FamilyBudget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karmanova-ya/JSCC-FamilyBudget/issues"
+  },
+  "homepage": "https://github.com/karmanova-ya/JSCC-FamilyBudget#readme"
 }

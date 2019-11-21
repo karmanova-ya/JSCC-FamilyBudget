@@ -47,31 +47,7 @@ test('Fetch an user', async t => {
   t.deepEqual(yanaUserFetched, yanaUserCreated)
 })
 
-/******************************** */
-test('Fetch an user by ID', async t => {
-  t.plan(2)
-  const userToCreate = {
-    firstName: 'Yana',
-    lastName: 'Karmanova',
-    eMail: 'poi@hjoi.ok',
-    phoneNumber: 123456,
-    cardsList: []
-  }
-
-  const userCreated = await request(app)
-    .post('/user')
-    .send(userToCreate)
-
-  const fetchRes = await request(app).get(`/user/${userCreated._id}/json`)
-  t.is(fetchRes.status, 200)
-  
-  const userFetched = fetchRes.body
-  t.deepEqual(userFetched._id, userCreated._id)
-})
-/******************************** */
-
-
-test('Delete an user', async t => {
+test('Delete user', async t => {
   t.plan(3)
 
   const userToCreate = {
