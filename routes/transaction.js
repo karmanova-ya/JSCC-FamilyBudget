@@ -8,9 +8,20 @@ router.get('/all', async (req, res) => {
   res.render('list', { items: transactions })
 })
 
+router.get('/all/json', async (req, res) => {
+  const transactions = await TransactionsService.findAll()
+  res.send(transactions)
+})
+
 router.get('/:id', async (req, res) => {
   const transaction = await TransactionService.find(req.params.id)
   res.render('data', { data: transaction })
+})
+
+router.get('/:id/json', async (req, res) => {
+  const transaction = await TransactionService.find(req.params.id)
+  if (!transaction) res.status(404)
+  res.send(transaction)
 })
 
 router.post('/', async (req, res) => {

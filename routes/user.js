@@ -10,9 +10,20 @@ router.get('/all', async (req, res) => {
   res.render('list', { items: people })
 })
 
+router.get('/all/json', async (req, res) => {
+  const people = await UserService.findAll()
+  res.send(people)
+})
+
 router.get('/:id', async (req, res) => {
   const user = await UserService.find(req.params.id)
   res.render('data', { data: user })
+})
+
+router.get('/:id/json', async (req, res) => {
+  const user = await UserService.find(req.params.id)
+  if (!user) res.status(404)
+  res.send(user)
 })
 
 router.post('/', async (req, res) => {

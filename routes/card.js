@@ -8,9 +8,20 @@ router.get('/all', async (req, res) => {
   res.render('list', { items: cards })
 })
 
+router.get('/all/json', async (req, res) => {
+  const cards = await CardService.findAll()
+  res.send(cards)
+})
+
 router.get('/:id', async (req, res) => {
   const card = await CardService.find(req.params.id)
   res.render('data', { data: card })
+})
+
+router.get('/:id/json', async (req, res) => {
+  const card = await CardService.find(req.params.id)
+  if (!card) res.status(404)
+  res.send(card)
 })
 
 router.post('/', async (req, res) => {

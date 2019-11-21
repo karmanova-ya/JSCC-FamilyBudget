@@ -15,7 +15,7 @@ const CardSchema = new mongoose.Schema({
     },
     expDate: Date,
     cardHolder: {
-        required: true,
+        // required: true,
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User'
     },

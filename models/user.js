@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
-
     firstName: {
         type: String,
         required: true,
@@ -33,5 +32,11 @@ const UserSchema = new mongoose.Schema({
         }
     }],
 
-    amount: Number
+    amount: Number,
+    id: Number
 })
+
+UserSchema.plugin(require('mongoose-autopopulate'))
+const UserModel = mongoose.model('User', UserSchema)
+
+module.exports = UserModel
