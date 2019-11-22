@@ -1,6 +1,3 @@
-// const fs = require('fs')
-// const Flatted = require('flatted/cjs');
-
 module.exports = class Service {
   async findAll() {
     return this.model.find()
@@ -16,9 +13,5 @@ module.exports = class Service {
 
   async find(itemId) {
     return this.model.findById(itemId)
-  }
-
-  async saveAll(items) {
-    return this.model.save(item)
   }
 }

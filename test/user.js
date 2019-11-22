@@ -4,6 +4,7 @@ import app from "../app"
 
 test('Create a new user', async t => {
   t.plan(5)
+
   const userToCreate = {
     firstName: 'Yana',
     lastName: 'Karmanova',
@@ -24,7 +25,7 @@ test('Create a new user', async t => {
 })
 
 test('Fetch an user', async t => {
-  t.plan(3)
+  t.plan(4)
   const userToCreate = {
     firstName: 'Yana',
     lastName: 'Karmanova',
@@ -40,11 +41,21 @@ test('Fetch an user', async t => {
   const fetchRes = await request(app).get(`/user/${yanaUserCreated._id}/json`)
   t.is(fetchRes.status, 200)
 
+  const fetchResHtml = await request(app).get(`/user/${yanaUserCreated._id}`)
+  t.is(fetchResHtml.status, 200)
+
   const fetchResJson = await request(app).get(`/user/${yanaUserCreated._id}/json`)
   t.is(fetchResJson.status, 200)
 
   const yanaUserFetched = fetchResJson.body
   t.deepEqual(yanaUserFetched, yanaUserCreated)
+})
+
+test('Fetch if user is not created', async t => {
+  t.plan(1)
+  
+  const fetchRes = await request(app).get(`/user/5dd70bc80bb5b6143bf33b83/json`)
+  t.is(fetchRes.status, 404)
 })
 
 test('Delete user', async t => {
@@ -68,7 +79,6 @@ test('Delete user', async t => {
   t.is(deleteRes.ok, true)
 
   const fetch = await request(app).get(`/person/${yanaUserCreated._id}/json`)
-
   t.is(fetch.status, 404)
 })
 
@@ -132,5 +142,4 @@ test('Add card to users card list', async t => {
   t.is(cardAltered.cardsList[0]._id, createdCard._id)
   t.deepEqual(cardAltered.cardsList[0], createdCard)
   t.notDeepEqual(cardAltered, createdCard)
-
 })

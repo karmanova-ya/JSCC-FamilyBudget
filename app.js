@@ -14,8 +14,4 @@ app.use(bodyParser.json())
 app.use('/user', userRouter)
 app.use('/card', cardRouter)
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
 module.exports = app
